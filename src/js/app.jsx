@@ -3,7 +3,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import MovieSearchContainer from './containers/MSC/MovieSearchContainer';
 import MovieDetailContainer from './containers/MDC/MovieDetailContainer';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <Router>
@@ -13,6 +13,7 @@ export default class App extends Component {
         </div>
       </Router>
       )
-    ;
-  } 
+  }
 }
+
+export default App;

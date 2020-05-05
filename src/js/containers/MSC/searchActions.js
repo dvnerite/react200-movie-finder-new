@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 
@@ -19,6 +18,7 @@ export function getMovie(title) {
 }
 
 export function getMovieDetails(id) {
+  
   return {
     type: 'GET_MOVIE_DETAILS',
     payload: axios.get(`/movies/${id}`)
