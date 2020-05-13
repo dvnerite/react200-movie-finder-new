@@ -1,6 +1,10 @@
+import { bindActionCreators } from "redux";
+
 const defaultState = {
-    input: '',
+    value: '',
     movies: [],
+    movieTitle: '',
+    poster: '',
     movieDetails: [],
   };
 
@@ -15,16 +19,18 @@ const defaultState = {
           // will all previous state
           ...state,
           // but overwriting input
-          input: payload.input
+          value: payload
         };
       }
-  
-  
-      case 'GET_MOVIE_FULFILLED': {
+      
+      case 'GET_MOVIE': {
         // movies key is for default state above.
         return {
           ...state,
-          movies: payload.data.Search,
+          movies: action.payload.value,
+          value: '',
+          // value: payload.data.title,
+          // poster: payload.data.poster
         };
       }
       
