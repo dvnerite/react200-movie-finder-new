@@ -3,8 +3,6 @@ import { bindActionCreators } from "redux";
 const defaultState = {
     value: '',
     movies: [],
-    movieTitle: '',
-    poster: '',
     movieDetails: [],
   };
 
@@ -20,6 +18,7 @@ const defaultState = {
           ...state,
           // but overwriting input
           value: payload
+          
         };
       }
       
@@ -27,8 +26,7 @@ const defaultState = {
         // movies key is for default state above.
         return {
           ...state,
-          movies: action.payload.value,
-          value: '',
+          movies: payload.data.movies,
           // value: payload.data.title,
           // poster: payload.data.poster
         };

@@ -14,18 +14,18 @@ export function getMovie(value) {
   return {
     type: 'GET_MOVIE',
     payload: axios.get(`/movies/${value}`)
-    // .then(res => {
-    //   // console.log(res.data);
-    //   ({data: res.data})
-    //   // you'll want to do more than 
-    //   // just console.log in here but 
-    //   // this will at least show you 
-    //   // what youre getting back
-    //   // console.log(title)
+    .then(res => {
+      // console.log(res.data);
+      ({data: res.data})
+      // you'll want to do more than 
+      // just console.log in here but 
+      // this will at least show you 
+      // what youre getting back
+      // console.log(title)
 
-    //   // console.log("res" , res);
-    // })
-    // .catch(err => console.log(err)),
+      // console.log("res" , res);
+    })
+    .catch(err => console.log(err)),
     };
 }
 
