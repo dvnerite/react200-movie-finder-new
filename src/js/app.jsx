@@ -8,12 +8,11 @@ class App extends Component {
     return (
       <Router>
         <div className='container'> 
-          {/* <Route exact path='/' component={ MovieSearchContainer } /> */}
-          <Route exact path='/' component={ props => <MovieSearchContainer {...props} /> } />
-          <Route path='/movie/:id' component={ props => MovieDetailContainer  } />
+          <Route exact path='/' component={ MovieSearchContainer  } />
+          <Route path='/movie/:id' component={ MovieDetailContainer  } />
         </div>
       </Router>
-      )
+      );
   }
 }
 

@@ -22,11 +22,11 @@ const defaultState = {
         };
       }
       
-      case 'GET_MOVIE': {
+      case 'GET_MOVIE_FULFILLED': {
         // movies key is for default state above.
         return {
           ...state,
-          movies: payload.data.movies,
+          movies: payload.data.Search,
           // value: payload.data.title,
           // poster: payload.data.poster
         };

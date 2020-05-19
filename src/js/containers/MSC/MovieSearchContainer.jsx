@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { updateMovieInput, getMovie} from './searchActions';
-import { NavLink } from 'react-router-dom';
-export class MovieSearchContainer extends React.Component {
-  constructor(props) {
+import { Link } from 'react-router-dom';
+
+function mapStateToProps(state) {
+  return { 
+    state: state
+  };
+}
+
+class MovieSearchContainer extends React.Component {
+  constructor(props){
     super(props);
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleSearchInput(event){
     // dispatch was provided by connect()
     const { dispatch } = this.props;
@@ -15,6 +23,7 @@ export class MovieSearchContainer extends React.Component {
     // console.log(value)
     dispatch(updateMovieInput(value));
   }
+
   handleClick(event){
     // console.log(this.props);
     event.preventDefault();
@@ -23,8 +32,10 @@ export class MovieSearchContainer extends React.Component {
     // console.log('In click:', this.props.state.search)
     dispatch(getMovie(value));
   }
+
   render() {
     const { value } = this.props;
+    // console.log(this.props, 'list of props')
     return (
       <div>
           <br></br>
@@ -44,7 +55,8 @@ export class MovieSearchContainer extends React.Component {
                     <button className = "btn btn-outline-secondary" type="button" id='search-button' onClick={ this.handleClick }>Go!</button>
                     </div>
                     <br></br>
-                  {   
+                    <div>
+                    {   
                       this.props.state.search.movies.map((movies => {
                         return (
                         <div className="container-fluid">
@@ -54,25 +66,22 @@ export class MovieSearchContainer extends React.Component {
                                 <h4 key={movies.imdbID}>{ movies.Title }</h4>
                                 <h6>{ movies.Year }</h6>
                                 <hr/>
-                                {/* <Link to={`/movie/:${item.imdbID}`}>
+                                {/* <Link to={`/movie/:${movies.imdbID}`}>
                                     <button className="btn btn-primary">More information</button>
                                     </Link> */}
                             </div>
                           </div>
                         </div>
-                        )
-                      }))};
-              </div>
                         
+                        )
+                      }))}
+              </div>
+              </div>
               </div>
           </div>
         </div>
     )
   }
 }
-function mapStateToProps(state) {
-  return { 
-    state: state
-  }
-}
+
 export default connect(mapStateToProps)(MovieSearchContainer)
